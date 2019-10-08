@@ -8,23 +8,26 @@
  
     <!-- ② JavaScript を追加 -->
     <script src="/js/app.js" defer></script>
+
+    <!-- navbar追加 -->
+    @include('navbar')
 </head>
 <body>
-<ul class="wnTopic__list">
-    @foreach(FeedReader::read('https://media.moneyforward.com/feeds/index')->get_items() as $item)
-    <li class="wnTopic__item">
-        <span class="wnTopic__date">[{{$item->get_date('Y/m/d')}}]</span>
-        <a href="{{ $item->get_permalink() }}" target="_parent" class="wnTopic__title">{{ $item->get_title() }}</a>
-    </li>
-    @endforeach
-</ul>
-<ul class="wnTopic__list">
-    @foreach($parsed as $parserName => $link)
-    <li class="wnTopic__item">
-        <img src="{{ $link->getImage() }}" alt="画像">
-        <a href="{{ $link->getUrl() }}" target="_parent" class="wnTopic__title">{{ mb_convert_encoding($link->getTitle(), "auto") }}</a>
-    </li>
-    @endforeach
-</ul>
+    <div class="container">
+        <div class="row">
+            @for ($i=0; $i<count($parsed); $i++ )
+                @foreach($parsed[$i] as $parserName => $link)
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card">
+                            <img src="{{ $link->getImage() }}" class="card-img-top" alt="画面" height="200">
+                            <div class="card-body">
+                              <a href="{{ $link->getUrl() }}" class="card-text">{{ mb_convert_encoding($link->getTitle(), "auto") }}</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endfor
+        </div>
+    </div>
 </body>
 </html>

@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use LinkPreview\LinkPreview;
+use Awjudd\FeedReader\Facade as FeedReader;
 
 class RssController extends Controller
 {
     // 関数
     public function preview() {
-        $linkPreview = new LinkPreview('https://media.moneyforward.com/articles/3724');
-        $parsed = $linkPreview->getParsed();
+        $rss_url = "https://media.moneyforward.com/feeds/index";
+        foreach(FeedReader::read($rss_url)->get_items() as $item) {
+            $linkPreview = new LinkPreview($item->get_permalink());
+            $parsed[] = $linkPreview->getParsed();
+        }
         // foreach ($parsed as $parserName => $link) {
         //     echo $parserName . PHP_EOL . PHP_EOL;
 
