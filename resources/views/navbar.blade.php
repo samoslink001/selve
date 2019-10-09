@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
   <div class="container">
     <!-- ブランド表示 -->
-    <a class="navbar-brand" href="#">My Blog</a>
+    <a class="navbar-brand" href="#">SELVE</a>
  
     <!-- スマホやタブレットで表示した時のメニューボタン -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,13 +13,13 @@
       <!-- 左寄せメニュー -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#">KNOWLEDGE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">PLANING</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#">MANAGER</a>
         </li>
       </ul>
  
